@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import heroImage from "@/assets/Scene-1.jpg";
-import mvpHighlight from "@/assets/marker-black.png";
+import mvpHighlight from "@/assets/marker-pink.png";
 
 const HeroSection = () => {
   return (
@@ -12,7 +12,7 @@ const HeroSection = () => {
           <filter id="grain">
             <feTurbulence
               type="fractalNoise"
-              baseFrequency="0.90"
+              baseFrequency="0.80"
               numOctaves="3"
               stitchTiles="stitch"
               result="noise"
@@ -37,13 +37,13 @@ const HeroSection = () => {
         {/* Frame lines overlay */}
         <div className="absolute inset-0 z-[1] pointer-events-none">
           {/* Top horizontal */}
-          <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gray-300 mt-20" />  
+          <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gray-200 mt-20" />  
           {/* Bottom horizontal - ~1/3 from bottom */}
           {/* <div className="absolute bottom-[33%] left-0 right-0 h-[2px] bg-white/50" /> */}
           {/* Left vertical - ~20% from left */}
-          <div className="absolute top-0 bottom-0 left-[20%] w-[1.5px] bg-gray-300" />
+          <div className="absolute top-0 bottom-0 left-[20%] w-[1.5px] bg-gray-200" />
           {/* Right vertical - ~20% from right */}
-          <div className="absolute top-0 bottom-0 right-[20%] w-[1.5px] bg-gray-300" />
+          <div className="absolute top-0 bottom-0 right-[20%] w-[1.5px] bg-gray-200" />
         </div>
       </div>
 
@@ -53,7 +53,7 @@ const HeroSection = () => {
 
         {/* Headline */}
         <h1
-          className="font-heading text-black/85 text-4xl sm:text-6xl md:text-5xl lg:text-6xl leading-[0.95] tracking-tight text-white mb-6 animate-fade-in-up"
+          className="font-heading text-black text-4xl sm:text-6xl md:text-5xl lg:text-6xl leading-[0.95] tracking-tight text-white mb-6 animate-fade-in-up"
           style={{ animationDelay: "0.3s" }}
         >
           Build and Launch Your{" "}
@@ -63,7 +63,7 @@ const HeroSection = () => {
               backgroundImage: `url(${mvpHighlight})`,
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center",
-              backgroundSize: "140% 120%",
+              backgroundSize: "120% 120%",
             }}
           >
             MVP
@@ -88,10 +88,16 @@ const HeroSection = () => {
           className="animate-fade-in-up gap-4 flex items-center justify-center"
           style={{ animationDelay: "0.7s" }}
         >
-          <Button className="shadow-lg rounded-full" variant="hero" size="lg">
-            Book a slot
+          <Button className="shadow-lg rounded-full" variant="hero" size="lg" asChild>
+            <a
+              href="https://cal.com/joshipallava/discovery-call"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Book a slot
+            </a>
           </Button>
-          <Button className="shadow-lg rounded-full" variant="outline" size="lg">
+          <Button className="shadow-lg rounded-full bg-white text-black" variant="outline" size="lg">
             Learn more
             <ArrowRight size={16} />
           </Button>

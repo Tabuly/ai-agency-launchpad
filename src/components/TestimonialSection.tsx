@@ -13,6 +13,7 @@ interface Testimonial {
   initials: string;
   image?: string;
   featured?: boolean;
+  background?: string;
 }
 
 const testimonials: Testimonial[] = [
@@ -25,6 +26,7 @@ const testimonials: Testimonial[] = [
     initials: "SC",
     image: testimonialPhoto,
     featured: true,
+    background: "cornsilk"
   },
   {
     quote:
@@ -35,6 +37,7 @@ const testimonials: Testimonial[] = [
     image: testimonialPhoto,
     initials: "MW",
     featured: false,
+    background: "powderblue"
   },
   {
     quote:
@@ -45,6 +48,7 @@ const testimonials: Testimonial[] = [
     image: testimonialPhoto,
     initials: "PP",
     featured: false,
+    background: "hotpink"
   },
 ];
 
@@ -79,10 +83,11 @@ export const TestimonialSection = () => {
             <article
               key={i}
               className={cn(
-                "relative rounded-2xl border border-border bg-background p-8",
+                "relative rounded-2xl border border-border p-8",
                 "transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 hover:border-primary/20",
                 t.featured && "lg:col-span-2 lg:row-span-1"
               )}
+              style={{ backgroundColor: t.background }}
             >
               {/* Quote icon */}
               <Quote

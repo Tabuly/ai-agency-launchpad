@@ -107,7 +107,7 @@ export const ProjectsSection = () => {
 
       <div className="lg:flex lg:items-start px-6 md:px-12 lg:px-24 pt-0 lg:pt-20 pb-24">
         {/* Left: STICKY column - header + media */}
-        <div className="hidden lg:flex lg:sticky lg:top-24 lg:self-start lg:w-[48vw] lg:shrink-0 lg:flex-col lg:gap-8 lg:pl-0 lg:pr-4">
+        <div className="hidden lg:flex lg:sticky lg:top-24 lg:self-start lg:w-[55vw] lg:shrink-0 lg:flex-col lg:gap-8 lg:pl-0 lg:pr-4">
           <div className="mb-4 lg:mb-0">
             <p className="text-sm font-medium text-primary mb-2">Selected work</p>
             <h2 className="font-heading text-4xl sm:text-5xl font-semibold tracking-tight text-foreground max-w-2xl">

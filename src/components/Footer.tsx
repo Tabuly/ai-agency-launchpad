@@ -45,9 +45,17 @@ export const Footer = () => {
               variant="secondary"
               size="lg"
               className="rounded-full bg-primary-foreground text-primary hover:bg-primary-foreground/90 gap-2"
+              asChild
             >
-              Book a slot
-              <ArrowUpRight className="h-4 w-4" />
+              <a
+                href="https://cal.com/joshipallava/discovery-call"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2"
+              >
+                Book a slot
+                <ArrowUpRight className="h-4 w-4" />
+              </a>
             </Button>
           </div>
         </div>

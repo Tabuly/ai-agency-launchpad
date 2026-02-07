@@ -37,8 +37,14 @@ const Navbar = () => {
 
         {/* Desktop CTA */}
         <div className="hidden md:block">
-          <Button variant="navCta" size="default">
-            Book a slot
+          <Button variant="navCta" size="default" asChild>
+            <a
+              href="https://cal.com/joshipallava/discovery-call"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Book a slot
+            </a>
           </Button>
         </div>
 
@@ -68,8 +74,14 @@ const Navbar = () => {
               </li>
             ))}
             <li>
-              <Button variant="navCta" size="default" className="w-full mt-2">
-                Book a call
+              <Button variant="navCta" size="default" className="w-full mt-2" asChild>
+                <a
+                  href="https://cal.com/joshipallava/discovery-call"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Book a call
+                </a>
               </Button>
             </li>
           </ul>

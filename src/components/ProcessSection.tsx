@@ -128,7 +128,9 @@ export const ProcessSection = () => {
         <p className="mt-12 text-center text-primary-foreground/60 text-sm">
           Ready to start?{" "}
           <a
-            href="#contact"
+            href="https://cal.com/joshipallava/discovery-call"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-primary-foreground font-medium hover:underline underline-offset-4"
           >
             Book your initial call →
