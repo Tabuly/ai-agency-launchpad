@@ -17,7 +17,7 @@ const HeroSection = () => {
           <source src={heroVideo} type="video/mp4" />
         </video>
         {/* Gradient overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
       </div>
 
       {/* Content */}
