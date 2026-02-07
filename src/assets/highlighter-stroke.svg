@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 48" fill="none">
+  <defs>
+    <linearGradient id="stroke-texture" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.35)" />
+      <stop offset="25%" stop-color="rgba(255,255,255,0.1)" />
+      <stop offset="50%" stop-color="rgba(255,255,255,0.2)" />
+      <stop offset="75%" stop-color="rgba(255,255,255,0.08)" />
+      <stop offset="100%" stop-color="rgba(255,255,255,0.15)" />
+    </linearGradient>
+  </defs>
+  <!-- Hand-drawn brush stroke - light mint green with irregular wavy edges -->
+  <path
+    d="M 2 24 
+       C 25 18, 50 28, 80 22 
+       C 110 26, 135 18, 165 24 
+       C 195 20, 220 28, 250 22 
+       C 280 26, 305 20, 318 24
+       L 320 30
+       C 295 38, 270 28, 245 34
+       C 215 30, 190 36, 160 32
+       C 130 36, 105 28, 75 34
+       C 45 30, 20 36, 2 28 Z"
+    fill="#a8d4be"
+  />
+  <path
+    d="M 2 24 
+       C 25 18, 50 28, 80 22 
+       C 110 26, 135 18, 165 24 
+       C 195 20, 220 28, 250 22 
+       C 280 26, 305 20, 318 24
+       L 320 30
+       C 295 38, 270 28, 245 34
+       C 215 30, 190 36, 160 32
+       C 130 36, 105 28, 75 34
+       C 45 30, 20 36, 2 28 Z"
+    fill="url(#stroke-texture)"
+  />
+</svg>

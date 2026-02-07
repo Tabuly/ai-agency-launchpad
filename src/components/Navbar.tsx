@@ -13,12 +13,12 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-wh">
       <div className="mx-auto max-w-7xl px-6 py-5 flex items-center justify-between">
         {/* Logo */}
         <a href="/" className="flex items-center gap-2 font-heading text-2xl tracking-tight text-foreground">
-          <span className="inline-block w-6 h-6 rounded-full bg-accent" />
-          AXON AI
+          {/* <span className="inline-block w-6 h-6 rounded-full bg-accent" /> */}
+          Agency
         </a>
 
         {/* Desktop Nav */}
@@ -38,7 +38,7 @@ const Navbar = () => {
         {/* Desktop CTA */}
         <div className="hidden md:block">
           <Button variant="navCta" size="default">
-            Book a call
+            Book a slot
           </Button>
         </div>
 

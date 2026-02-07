@@ -1,64 +1,99 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import heroVideo from "@/assets/hero-video.mp4";
+import heroImage from "@/assets/Scene-1.jpg";
+import mvpHighlight from "@/assets/marker-black.png";
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen w-full flex items-end justify-center overflow-hidden">
-      {/* Background Video */}
+      {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover"
+        {/* <svg className="absolute w-0 h-0">
+          <filter id="grain">
+            <feTurbulence
+              type="fractalNoise"
+              baseFrequency="0.90"
+              numOctaves="3"
+              stitchTiles="stitch"
+              result="noise"
+            />
+            <feColorMatrix in="noise" type="saturate" values="0" />
+            <feBlend in="SourceGraphic" in2="noise" mode="overlay" />
+          </filter>
+        </svg> */}
+        <div
+          className="w-full h-full"
+          style={{ filter: "brightness(0.87) url(#grain)" }}
         >
-          <source src={heroVideo} type="video/mp4" />
-        </video>
-        {/* Gradient overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
+          {/* <img
+            src={heroImage}
+            alt=""
+            className="w-full h-full object-cover"
+          /> */}
+        </div>
+        {/* Gradient overlay: blend image into background at bottom */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
+
+        {/* Frame lines overlay */}
+        <div className="absolute inset-0 z-[1] pointer-events-none">
+          {/* Top horizontal */}
+          <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gray-300 mt-20" />  
+          {/* Bottom horizontal - ~1/3 from bottom */}
+          {/* <div className="absolute bottom-[33%] left-0 right-0 h-[2px] bg-white/50" /> */}
+          {/* Left vertical - ~20% from left */}
+          <div className="absolute top-0 bottom-0 left-[20%] w-[1.5px] bg-gray-300" />
+          {/* Right vertical - ~20% from right */}
+          <div className="absolute top-0 bottom-0 right-[20%] w-[1.5px] bg-gray-300" />
+        </div>
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center max-w-4xl mx-auto px-6 pb-20 pt-32">
+      <div className="relative z-10 text-center max-w-4xl mx-auto px-6 pb-64 pt-10">
         {/* Announcement Badge */}
-        <div
-          className="inline-flex items-center gap-2 rounded-full bg-secondary/80 backdrop-blur-sm border border-border px-5 py-2 mb-8 animate-fade-in-up"
-          style={{ animationDelay: "0.1s" }}
-        >
-          <span className="text-sm font-medium text-foreground/80">
-            Now accepting new clients for 2026
-          </span>
-          <ArrowRight size={14} className="text-foreground/60" />
-        </div>
 
         {/* Headline */}
         <h1
-          className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.95] tracking-tight text-foreground mb-6 animate-fade-in-up"
+          className="font-heading text-black/85 text-4xl sm:text-6xl md:text-5xl lg:text-6xl leading-[0.95] tracking-tight text-white mb-6 animate-fade-in-up"
           style={{ animationDelay: "0.3s" }}
         >
-          Build smarter
+          Build and Launch Your{" "}
+          <span
+            className="relative inline-block px-6 py-4 text-white"
+            style={{
+              backgroundImage: `url(${mvpHighlight})`,
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+              backgroundSize: "140% 120%",
+            }}
+          >
+            MVP
+          </span>{" "}
+          in 2
           <br />
-          with AI
+          Weeks
         </h1>
 
         {/* Subtitle */}
         <p
-          className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 animate-fade-in-up"
+          className="text-sm md:text-lg text-muted-foreground max-w-2xl mx-auto mb-10 animate-fade-in-up"
           style={{ animationDelay: "0.5s" }}
         >
-          We help businesses harness the power of artificial intelligence
-          to automate workflows, unlock insights, and accelerate growth.
+          We help solo founders and small teams turn ideas into shipped
+          products—with battle-tested templates, polished designs, and
+          hands-on development support.
         </p>
 
         {/* CTA */}
         <div
-          className="animate-fade-in-up"
+          className="animate-fade-in-up gap-4 flex items-center justify-center"
           style={{ animationDelay: "0.7s" }}
         >
-          <Button variant="hero" size="xl">
-            Get started
+          <Button className="shadow-lg rounded-full" variant="hero" size="lg">
+            Book a slot
+          </Button>
+          <Button className="shadow-lg rounded-full" variant="outline" size="lg">
+            Learn more
+            <ArrowRight size={16} />
           </Button>
         </div>
       </div>
