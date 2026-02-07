@@ -1,19 +1,23 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import heroBg from "@/assets/hero-bg.jpg";
+import heroVideo from "@/assets/hero-video.mp4";
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen w-full flex items-end justify-center overflow-hidden">
-      {/* Background Image */}
+      {/* Background Video */}
       <div className="absolute inset-0 z-0">
-        <img
-          src={heroBg}
-          alt="AI-powered landscape"
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
           className="w-full h-full object-cover"
-        />
+        >
+          <source src={heroVideo} type="video/mp4" />
+        </video>
         {/* Gradient overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/20" />
       </div>
 
       {/* Content */}
