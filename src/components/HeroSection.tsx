@@ -1,7 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { AnimatedShinyText } from "@/components/ui/animated-shiny-text";
+import { ArrowRight, ArrowRightIcon } from "lucide-react";
 import heroImage from "@/assets/Scene-1.jpg";
 import mvpHighlight from "@/assets/marker-pink.png";
+import { cn } from "@/lib/utils";
+import { AvatarCirclesComponent } from "./AvatarCircles";
+import { ShimmerButton } from "./ui/shimmer-button";
 
 const HeroSection = () => {
   return (
@@ -37,7 +41,7 @@ const HeroSection = () => {
         {/* Frame lines overlay */}
         <div className="absolute inset-0 z-[1] pointer-events-none">
           {/* Top horizontal */}
-          <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gray-200 mt-20" />  
+          <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gray-200 mt-20" />
           {/* Bottom horizontal - ~1/3 from bottom */}
           {/* <div className="absolute bottom-[33%] left-0 right-0 h-[2px] bg-white/50" /> */}
           {/* Left vertical - ~20% from left */}
@@ -48,12 +52,27 @@ const HeroSection = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center max-w-4xl mx-auto px-6 pb-64 pt-10">
-        {/* Announcement Badge */}
+      <div className="relative z-10 text-center max-w-4xl mx-auto px-6 pb-40 pt-10">
+        {/* Animated shiny text - above headline */}
+
+
+        <div className="z-10 flex items-center justify-center mb-6">
+          <div
+            className={cn(
+              "group rounded-full border border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800"
+            )}
+          >
+            <AnimatedShinyText className="gap-2 inline-flex items-center justify-center px-4 py-1 transition ease-out">
+
+              <AvatarCirclesComponent />
+              Trusted by founders who move fast
+            </AnimatedShinyText>
+          </div>
+        </div>
 
         {/* Headline */}
         <h1
-          className="font-heading text-black text-4xl sm:text-6xl md:text-5xl lg:text-6xl leading-[0.95] tracking-tight text-white mb-6 animate-fade-in-up"
+          className="font-heading text-4xl sm:text-6xl md:text-5xl lg:text-6xl leading-[0.95] tracking-tight text-black mb-6 animate-fade-in-up"
           style={{ animationDelay: "0.3s" }}
         >
           Build and Launch Your{" "}
@@ -88,19 +107,16 @@ const HeroSection = () => {
           className="animate-fade-in-up gap-4 flex items-center justify-center"
           style={{ animationDelay: "0.7s" }}
         >
-          <Button className="shadow-lg rounded-full" variant="hero" size="lg" asChild>
-            <a
-              href="https://cal.com/joshipallava/discovery-call"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+          <ShimmerButton className="shadow-2xl">
+            <a href="https://cal.com/joshipallava/discovery-call" target="_blank" rel="noopener noreferrer" className="py-1 text-center text-sm leading-none font-medium tracking-tight whitespace-pre-wrap text-white dark:from-white dark:to-slate-900/10">
               Book a slot
             </a>
-          </Button>
+          </ShimmerButton>
+{/* 
           <Button className="shadow-lg rounded-full bg-white text-black" variant="outline" size="lg">
             Learn more
             <ArrowRight size={16} />
-          </Button>
+          </Button> */}
         </div>
       </div>
     </section>

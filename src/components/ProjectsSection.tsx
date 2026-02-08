@@ -6,6 +6,7 @@ import cal from "@/assets/projects/cal.jpeg";
 import ed from "@/assets/projects/ed.png";
 import tng from "@/assets/projects/t&g.png";
 import nesoi from "@/assets/projects/nesoi.mov";
+import { Safari } from "./ui/safari";
 
 export interface Project {
   image?: string;
@@ -45,7 +46,7 @@ const projects: Project[] = [
     description: "AI-powered table extraction from PDFs. Extract and export tables instantly.",
     imageFit: "cover",
   },
-  
+
 
   {
     image: ed,
@@ -118,13 +119,12 @@ export const ProjectsSection = () => {
             {projects.map((project, index) => (
               <div
                 key={index}
-                className={`absolute inset-0 rounded-2xl overflow-hidden transition-opacity duration-500 ${
-                  activeIndex === index
+                className={`absolute inset-0 rounded-2xl overflow-hidden transition-opacity duration-500 ${activeIndex === index
                     ? "opacity-100 z-10"
                     : "opacity-0 z-0 pointer-events-none"
-                }`}
+                  }`}
               >
-                {project.video ? (
+                {/* {project.video ? (
                   <video
                     src={project.video}
                     muted
@@ -143,7 +143,15 @@ export const ProjectsSection = () => {
                         : "object-cover"
                     }`}
                   />
-                )}
+                )} */}
+
+                <div className="w-full max-w-full">
+                  <Safari
+                    url={project.title}
+                    videoSrc={project.video}
+                    imageSrc={project.image}
+                  />
+                </div>
               </div>
             ))}
           </div>
@@ -158,60 +166,59 @@ export const ProjectsSection = () => {
             }}
           /> */}
           <div className="lg:pt-[150px]">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              ref={(el) => {
-                itemRefs.current[index] = el;
-              }}
-              className="min-h-[75vh] flex flex-col lg:flex-row lg:items-start px-6 py-20 lg:px-0 lg:py-16 lg:min-h-[75vh] gap-8 lg:gap-0"
-            >
-              <div className="lg:hidden relative w-full aspect-video rounded-2xl overflow-hidden bg-muted shrink-0 shadow-lg">
-                {project.video ? (
-                  <video
-                    src={project.video}
-                    muted
-                    loop
-                    autoPlay
-                    playsInline
-                    className="absolute inset-0 h-full w-full object-cover object-center"
-                  />
-                ) : (
-                  <img
-                    src={project.image || "/placeholder.svg"}
-                    alt={project.title}
-                    className={`absolute inset-0 h-full w-full object-center ${
-                      project.imageFit === "contain"
-                        ? "object-contain bg-muted"
-                        : "object-cover"
-                    }`}
-                  />
-                )}
+            {projects.map((project, index) => (
+              <div
+                key={index}
+                ref={(el) => {
+                  itemRefs.current[index] = el;
+                }}
+                className="min-h-[75vh] flex flex-col lg:flex-row lg:items-start px-6 py-20 lg:px-0 lg:py-16 lg:min-h-[75vh] gap-8 lg:gap-0"
+              >
+                <div className="lg:hidden relative w-full aspect-video rounded-2xl overflow-hidden bg-muted shrink-0 shadow-lg">
+                  {project.video ? (
+                    <video
+                      src={project.video}
+                      muted
+                      loop
+                      autoPlay
+                      playsInline
+                      className="absolute inset-0 h-full w-full object-cover object-center"
+                    />
+                  ) : (
+                    <img
+                      src={project.image || "/placeholder.svg"}
+                      alt={project.title}
+                      className={`absolute inset-0 h-full w-full object-center ${project.imageFit === "contain"
+                          ? "object-contain bg-muted"
+                          : "object-cover"
+                        }`}
+                    />
+                  )}
+                </div>
+                <div className="max-w-xl border-l-2 border-primary pl-6">
+                  <span className="text-sm font-medium text-muted-foreground">
+                    0{index + 1}
+                  </span>
+                  <h3 className="font-heading text-3xl sm:text-4xl font-semibold tracking-tight text-foreground mt-2 mb-4">
+                    {project.title}
+                  </h3>
+                  {project.description && (
+                    <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                      {project.description}
+                    </p>
+                  )}
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      className="inline-flex items-center gap-2 text-primary font-medium hover:underline"
+                    >
+                      View project
+                      <ArrowUpRight size={18} />
+                    </a>
+                  )}
+                </div>
               </div>
-              <div className="max-w-xl border-l-2 border-primary pl-6">
-                <span className="text-sm font-medium text-muted-foreground">
-                  0{index + 1}
-                </span>
-                <h3 className="font-heading text-3xl sm:text-4xl font-semibold tracking-tight text-foreground mt-2 mb-4">
-                  {project.title}
-                </h3>
-                {project.description && (
-                  <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                    {project.description}
-                  </p>
-                )}
-                {project.link && (
-                  <a
-                    href={project.link}
-                    className="inline-flex items-center gap-2 text-primary font-medium hover:underline"
-                  >
-                    View project
-                    <ArrowUpRight size={18} />
-                  </a>
-                )}
-              </div>
-            </div>
-          ))}
+            ))}
           </div>
         </div>
       </div>

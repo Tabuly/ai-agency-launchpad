@@ -1,42 +1,56 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { NavTabs } from "@/components/NavTabs";
 
 const navLinks = [
-  { label: "Services", href: "#services" },
+  { label: "Home", href: "/" },
   { label: "Work", href: "#work" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Pricing", href: "#pricing" },
+  { label: "FAQ", href: "#faq" },
 ];
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY < 80) {
+        setVisible(true);
+      } else if (currentScrollY > lastScrollY.current) {
+        setVisible(false);
+      } else {
+        setVisible(true);
+      }
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-wh">
-      <div className="mx-auto max-w-7xl px-6 py-5 flex items-center justify-between">
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md transition-transform duration-300 ${
+        visible ? "translate-y-0" : "-translate-y-full"
+      }`}
+    >
+      <div className="mx-auto max-w-7xl px-6 py-5 flex items-center justify-between relative">
         {/* Logo */}
-        <a href="/" className="flex items-center gap-2 font-heading text-2xl tracking-tight text-foreground">
-          {/* <span className="inline-block w-6 h-6 rounded-full bg-accent" /> */}
+        <a href="/" className="flex items-center gap-2 font-heading text-2xl tracking-tight text-foreground shrink-0">
           Agency
         </a>
 
-        {/* Desktop Nav */}
-        <ul className="hidden md:flex items-center gap-10">
-          {navLinks.map((link) => (
-            <li key={link.label}>
-              <a
-                href={link.href}
-                className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors duration-200"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+        {/* Desktop Nav Tabs - centered */}
+        <div className="absolute left-1/2 -translate-x-1/2">
+          <NavTabs />
+        </div>
 
-        {/* Desktop CTA */}
-        <div className="hidden md:block">
+        {/* Desktop CTA - right */}
+        <div className="hidden md:block shrink-0">
           <Button variant="navCta" size="default" asChild>
             <a
               href="https://cal.com/joshipallava/discovery-call"
