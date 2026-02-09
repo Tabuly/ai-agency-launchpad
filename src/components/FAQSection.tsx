@@ -36,9 +36,8 @@ export const FAQSection = () => {
   return (
     <section
       id="faq"
-      className="relative py-32 px-6 md:px-12 lg:px-24 overflow-hidden"
+      className="relative py-32 px-8 sm:px-10 md:px-16 lg:px-20 xl:px-32 overflow-hidden"
     >
-      {/* Subtle background pattern */}
       <div
         className="absolute inset-0 opacity-[0.02] pointer-events-none"
         style={{
@@ -47,8 +46,7 @@ export const FAQSection = () => {
         }}
       />
 
-      <div className="relative lg:flex lg:gap-16 lg:items-start max-w-6xl mx-auto">
-        {/* Left: Sticky heading */}
+      <div className="relative lg:flex lg:gap-16 lg:items-start max-w-5xl mx-auto">
         <div className="lg:sticky lg:top-32 lg:w-[38%] lg:shrink-0 mb-16 lg:mb-0">
           <p className="text-sm font-medium text-primary mb-3">FAQ</p>
           <h2 className="font-heading text-4xl sm:text-5xl lg:text-5xl font-semibold tracking-tight text-foreground leading-[1.1]">
@@ -59,7 +57,6 @@ export const FAQSection = () => {
           </p>
         </div>
 
-        {/* Right: FAQ cards */}
         <div className="lg:flex-1 space-y-4">
           <AccordionPrimitive.Root
             type="single"
@@ -71,10 +68,10 @@ export const FAQSection = () => {
                 key={index}
                 value={`item-${index}`}
                 className={cn(
-                  "group rounded-2xl border border-border bg-card/50 backdrop-blur-sm",
+                  "group rounded-2xl border border-border bg-white dark:bg-white/95 backdrop-blur-sm",
                   "transition-all duration-300 ease-out",
-                  "hover:border-primary/30 hover:bg-card/80",
-                  "data-[state=open]:border-primary/50 data-[state=open]:bg-card data-[state=open]:shadow-lg data-[state=open]:shadow-primary/5"
+                  "hover:border-primary/30 hover:bg-white dark:hover:bg-white/95",
+                  "data-[state=open]:border-primary/50 data-[state=open]:bg-white data-[state=open]:shadow-lg data-[state=open]:shadow-primary/5 dark:data-[state=open]:bg-white/95"
                 )}
               >
                 <AccordionPrimitive.Header>
@@ -84,10 +81,10 @@ export const FAQSection = () => {
                       "focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/20 focus-visible:ring-offset-2 rounded-2xl"
                     )}
                   >
-                    <span className="text-sm font-medium text-muted-foreground shrink-0 mt-0.5">
+                    <span className="text-sm font-medium text-muted-foreground dark:text-neutral-600 shrink-0 mt-0.5">
                       0{index + 1}
                     </span>
-                    <span className="font-heading text-lg sm:text-xl font-medium text-foreground flex-1 pr-4 group-data-[state=open]:font-semibold">
+                    <span className="font-heading text-lg sm:text-xl font-medium text-foreground dark:text-neutral-900 flex-1 pr-4 group-data-[state=open]:font-semibold">
                       {faq.question}
                     </span>
                     <span
@@ -110,7 +107,7 @@ export const FAQSection = () => {
                   )}
                 >
                   <div className="px-6 pb-6 pt-0 pl-14 sm:pl-16">
-                    <p className="text-muted-foreground leading-relaxed">
+                    <p className="text-muted-foreground dark:text-neutral-600 leading-relaxed">
                       {faq.answer}
                     </p>
                   </div>

@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { NavTabs } from "@/components/NavTabs";
+import { ShimmerButton } from "./ui/shimmer-button";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -51,7 +52,12 @@ const Navbar = () => {
 
         {/* Desktop CTA - right */}
         <div className="hidden md:block shrink-0">
-          <Button variant="navCta" size="default" asChild>
+          {/* <Button
+            variant="navCta"
+            size="default"
+            className="-translate-y-0.5 shadow-[0_2px_6px_rgba(0,0,0,0.06)] hover:shadow-[0_3px_10px_rgba(0,0,0,0.08)]"
+            asChild
+          >
             <a
               href="https://cal.com/joshipallava/discovery-call"
               target="_blank"
@@ -59,7 +65,12 @@ const Navbar = () => {
             >
               Book a slot
             </a>
-          </Button>
+          </Button> */}
+          <ShimmerButton asChild background="hsl(var(--primary))" className="shadow-2xl">
+            <a href="https://cal.com/joshipallava/discovery-call" target="_blank" rel="noopener noreferrer" className="text-center text-sm leading-none font-medium tracking-tight whitespace-pre-wrap text-white dark:from-white dark:to-slate-900/10">
+              Book a slot
+            </a>
+          </ShimmerButton>
         </div>
 
         {/* Mobile toggle */}

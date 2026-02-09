@@ -1,7 +1,8 @@
 "use client";
 
-import { PhoneCall, Lightbulb, Code2, Rocket } from "lucide-react";
+import { PhoneCall, Lightbulb, Code2, Rocket, type LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { AnimatedList } from "@/components/ui/animated-list";
 
 const steps = [
   {
@@ -10,7 +11,7 @@ const steps = [
     title: "Initial call",
     description:
       "We jump on a call to understand your idea, target users, and must-have features. No lengthy forms—just a focused conversation to align on what we're building.",
-    bento: "lg:col-span-2 lg:row-span-2", // Large card
+    color: "#00C9A7",
   },
   {
     number: "02",
@@ -18,7 +19,7 @@ const steps = [
     title: "Strategy",
     description:
       "We map out the scope, prioritize features, and define a clear path to launch.",
-    bento: "lg:col-span-1",
+    color: "#FFB800",
   },
   {
     number: "03",
@@ -26,7 +27,7 @@ const steps = [
     title: "Code",
     description:
       "Industry-standard coding, AI-augmented development, and clean, scalable architecture.",
-    bento: "lg:col-span-1",
+    color: "#1E86FF",
   },
   {
     number: "04",
@@ -34,104 +35,99 @@ const steps = [
     title: "Launch",
     description:
       "Deployed, tested, and ready for users. We hand over a live product—within 2 weeks.",
-    bento: "lg:col-span-2", // Wide card
+    color: "#FF3D71",
   },
 ];
+
+interface ProcessStepCardProps {
+  number: string;
+  title: string;
+  description: string;
+  icon: LucideIcon;
+  color: string;
+}
+
+const ProcessStepCard = ({
+  number,
+  title,
+  description,
+  icon: Icon,
+  color,
+}: ProcessStepCardProps) => {
+  return (
+    <figure
+      className={cn(
+        "relative mx-auto min-h-fit w-full max-w-[500px] cursor-pointer overflow-hidden rounded-2xl p-5",
+        "transition-all duration-200 ease-in-out hover:scale-[102%]",
+        "bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]",
+        "dark:bg-white/5 dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] dark:backdrop-blur-md dark:[border:1px_solid_rgba(255,255,255,.12)]"
+      )}
+    >
+      <div className="flex flex-row items-start gap-4">
+        <div
+          className="flex size-12 shrink-0 items-center justify-center rounded-2xl text-white"
+          style={{ backgroundColor: color }}
+        >
+          <Icon className="h-6 w-6" />
+        </div>
+        <div className="flex min-w-0 flex-1 flex-col overflow-hidden">
+          <figcaption className="flex flex-wrap items-center gap-x-2 gap-y-1 text-base font-medium">
+            <span className="font-heading text-foreground">{title}</span>
+            <span className="text-muted-foreground">·</span>
+            <span className="font-heading text-2xl text-muted-foreground/80">
+              {number}
+            </span>
+          </figcaption>
+          <p className="mt-1.5 text-sm font-normal leading-relaxed text-muted-foreground">
+            {description}
+          </p>
+        </div>
+      </div>
+    </figure>
+  );
+};
 
 export const ProcessSection = () => {
   return (
     <section
       id="process"
-      className="relative py-32 px-6 md:px-12 lg:px-24 overflow-hidden"
+      className="relative py-20 md:py-28 px-4 md:px-6 lg:px-8 bg-background"
     >
-      {/* Background */}
-      <div className="absolute inset-0 bg-primary text-primary-foreground">
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)`,
-            backgroundSize: "28px 28px",
-          }}
-        />
-      </div>
-
       <div className="relative max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="mb-16 lg:mb-20">
-          <p className="text-sm font-medium text-primary-foreground/70 mb-3">
+        <div className="mb-12 lg:mb-16">
+          <p className="text-sm font-medium text-primary mb-3">
             Our process
           </p>
-          <h2 className="font-heading text-4xl sm:text-5xl font-semibold tracking-tight text-primary-foreground max-w-2xl leading-[1.1]">
+          <h2 className="font-heading text-4xl sm:text-5xl font-semibold tracking-tight text-foreground max-w-2xl leading-[1.1]">
             From idea to launch in 2 weeks.
           </h2>
         </div>
 
-        {/* Bento grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-5 auto-rows-fr">
-          {steps.map((step, i) => (
-            <div
-              key={i}
-              className={cn(
-                "group relative overflow-hidden rounded-2xl lg:rounded-3xl",
-                "border border-primary-foreground/10 bg-primary-foreground/[0.03]",
-                "p-6 lg:p-8 transition-all duration-300 min-h-[200px]",
-                "hover:border-primary-foreground/20 hover:bg-primary-foreground/[0.06]",
-                "flex flex-col",
-                step.bento,
-                i === 0 && "lg:bg-primary-foreground/[0.05] lg:border-primary-foreground/15"
-              )}
-            >
-              {/* Gradient glow on hover */}
-              <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                style={{
-                  background: `radial-gradient(circle at 50% 0%, rgba(255,255,255,0.04) 0%, transparent 60%)`,
-                }}
+        <div className="relative flex min-h-[480px] w-full flex-col overflow-hidden rounded-2xl p-4 md:p-6 bg-muted/40 border border-border">
+          <AnimatedList
+            className="w-full gap-4 flex-col-reverse items-center"
+            delay={600}
+          >
+            {steps.map((step) => (
+              <ProcessStepCard
+                key={step.number}
+                number={step.number}
+                title={step.title}
+                description={step.description}
+                icon={step.icon}
+                color={step.color}
               />
-
-              {/* Icon */}
-              <div
-                className={cn(
-                  "relative z-10 flex items-center justify-center rounded-xl w-12 h-12 mb-6",
-                  "bg-primary-foreground/10 border border-primary-foreground/10",
-                  "group-hover:bg-primary-foreground/15 group-hover:border-primary-foreground/20 transition-colors"
-                )}
-              >
-                <step.icon className="h-6 w-6 text-primary-foreground" />
-              </div>
-
-              {/* Number - large for first card */}
-              <span
-                className={cn(
-                  "font-heading font-bold text-primary-foreground/30 mb-2 block",
-                  step.bento.includes("row-span-2") ? "text-6xl lg:text-7xl" : "text-4xl"
-                )}
-              >
-                {step.number}
-              </span>
-
-              {/* Content */}
-              <div className="relative z-10 flex-1 flex flex-col">
-                <h3 className="font-heading text-xl lg:text-2xl font-semibold text-primary-foreground mb-3">
-                  {step.title}
-                </h3>
-                <p className="text-primary-foreground/70 text-sm lg:text-base leading-relaxed">
-                  {step.description}
-                </p>
-              </div>
-
-            </div>
-          ))}
+            ))}
+          </AnimatedList>
         </div>
 
-        {/* Bottom CTA */}
-        <p className="mt-12 text-center text-primary-foreground/60 text-sm">
+        <p className="mt-10 text-center text-muted-foreground text-sm">
           Ready to start?{" "}
           <a
             href="https://cal.com/joshipallava/discovery-call"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-primary-foreground font-medium hover:underline underline-offset-4"
+            className="text-primary font-medium hover:underline underline-offset-4"
           >
             Book your initial call →
           </a>

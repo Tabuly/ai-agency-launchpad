@@ -26,7 +26,7 @@ const testimonials: Testimonial[] = [
     initials: "SC",
     image: testimonialPhoto,
     featured: true,
-    background: "cornsilk"
+    background: "white"
   },
   {
     quote:
@@ -37,7 +37,7 @@ const testimonials: Testimonial[] = [
     image: testimonialPhoto,
     initials: "MW",
     featured: false,
-    background: "powderblue"
+    background: "white"
   },
   {
     quote:
@@ -48,7 +48,7 @@ const testimonials: Testimonial[] = [
     image: testimonialPhoto,
     initials: "PP",
     featured: false,
-    background: "hotpink"
+    background: "white"
   },
 ];
 

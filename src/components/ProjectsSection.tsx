@@ -6,6 +6,7 @@ import cal from "@/assets/projects/cal.jpeg";
 import ed from "@/assets/projects/ed.png";
 import tng from "@/assets/projects/t&g.png";
 import nesoi from "@/assets/projects/nesoi.mov";
+import marginx from "@/assets/projects/marginx.mov";
 import { Safari } from "./ui/safari";
 
 export interface Project {
@@ -21,24 +22,33 @@ export interface Project {
 const projects: Project[] = [
   {
     video: twocal,
-    title: "2cal",
-    description: "Smart scheduling for busy teams. Built for founders who need to move fast.",
+    title: "Clean Energy Drink",
+    description:
+      "Landing Page for a clean energy drink brand that is made with natural ingredients and is free from sugar and artificial flavors.",
   },
   {
     image: tng,
-    title: "Project Four",
-    description: "Brief description of the project.",
+    title: "Trust & Growth - AI Model",
+    description:
+      "Evaluate the T&G scores of publicly traded Swedish companies. Analyze various data sources to assign scores based on a set of defined parameters.",
     imageFit: "cover",
   },
   {
     image: cal,
-    title: "Project Three",
-    description: "Brief description of the project.",
+    title: "Cal.com - Internship Program",
+    description:
+      "Cal.com is a scheduling platform that allows you to schedule your meetings with ease. Built a custom internship program for Cal.com to help them hire interns and manage their internship program.",
+  },
+  {
+    video: marginx,
+    title: "MarginX",
+    description:
+      "A real-time leveraged trading engine that turns market volatility into returns. Uses WebSocket feeds, Redis streams, and automated take profit, stop loss, and margin call liquidations with configurable leverage.",
   },
   {
     video: nesoi,
-    title: "Project Four",
-    description: "Brief description of the project.",
+    title: "Nesoi",
+    description: "A platform where you can turn your boring lectures into AI interactive videos.",
   },
   {
     image: tabuly,
@@ -46,12 +56,10 @@ const projects: Project[] = [
     description: "AI-powered table extraction from PDFs. Extract and export tables instantly.",
     imageFit: "cover",
   },
-
-
   {
     image: ed,
-    title: "Project Four",
-    description: "Brief description of the project.",
+    title: "Estatedekho",
+    description: "A real estate platform with a wide range of properties for sale and rent.",
   },
 ];
 
@@ -98,16 +106,14 @@ export const ProjectsSection = () => {
 
   return (
     <section id="work" ref={sectionRef} className="relative">
-      {/* Mobile: header only */}
-      <div className="lg:hidden mb-12 px-6 pt-20">
+      <div className="lg:hidden mb-12 px-6 md:px-8 lg:px-12 pt-20">
         <p className="text-sm font-medium text-primary mb-2">Selected work</p>
         <h2 className="font-heading text-4xl sm:text-5xl font-semibold tracking-tight text-foreground max-w-2xl">
           Projects we&apos;re proud of
         </h2>
       </div>
 
-      <div className="lg:flex lg:items-start px-6 md:px-12 lg:px-24 pt-0 lg:pt-20 pb-24">
-        {/* Left: STICKY column - header + media */}
+      <div className="lg:flex lg:items-start px-8 md:px-10 lg:px-16 pt-0 lg:pt-20 pb-24 w-full">
         <div className="hidden lg:flex lg:sticky lg:top-24 lg:self-start lg:w-[55vw] lg:shrink-0 lg:flex-col lg:gap-8 lg:pl-0 lg:pr-4">
           <div className="mb-4 lg:mb-0">
             <p className="text-sm font-medium text-primary mb-2">Selected work</p>
@@ -115,36 +121,16 @@ export const ProjectsSection = () => {
               Projects we&apos;re proud of
             </h2>
           </div>
-          <div className="relative w-full aspect-video rounded-2xl overflow-hidden bg-muted">
+          <div className="relative w-full aspect-video rounded-2xl overflow-hidden bg-muted border-2 border-gray-200">
             {projects.map((project, index) => (
               <div
                 key={index}
-                className={`absolute inset-0 rounded-2xl overflow-hidden transition-opacity duration-500 ${activeIndex === index
+                className={`absolute inset-0 rounded-2xl overflow-hidden transition-opacity duration-500 ${
+                  activeIndex === index
                     ? "opacity-100 z-10"
                     : "opacity-0 z-0 pointer-events-none"
-                  }`}
+                }`}
               >
-                {/* {project.video ? (
-                  <video
-                    src={project.video}
-                    muted
-                    loop
-                    autoPlay
-                    playsInline
-                    className="absolute inset-0 h-full w-full object-cover object-center"
-                  />
-                ) : (
-                  <img
-                    src={project.image || "/placeholder.svg"}
-                    alt={project.title}
-                    className={`absolute inset-0 h-full w-full object-center ${
-                      project.imageFit === "contain"
-                        ? "object-contain bg-muted"
-                        : "object-cover"
-                    }`}
-                  />
-                )} */}
-
                 <div className="w-full max-w-full">
                   <Safari
                     url={project.title}
@@ -157,14 +143,7 @@ export const ProjectsSection = () => {
           </div>
         </div>
 
-        {/* Right: Scrollable column with overlay */}
         <div className="relative flex flex-col lg:flex-1 min-w-0 lg:pl-12">
-          {/* <div
-            className="hidden lg:block sticky top-24 left-0 right-0 h-[300px] -mb-[300px] pointer-events-none z-10 shrink-0"
-            style={{
-              background: `linear-gradient(to bottom, hsl(var(--background)) 0%, hsl(var(--background)) 50%, transparent 100%)`,
-            }}
-          /> */}
           <div className="lg:pt-[150px]">
             {projects.map((project, index) => (
               <div
@@ -188,17 +167,18 @@ export const ProjectsSection = () => {
                     <img
                       src={project.image || "/placeholder.svg"}
                       alt={project.title}
-                      className={`absolute inset-0 h-full w-full object-center ${project.imageFit === "contain"
+                      className={`absolute inset-0 h-full w-full object-center ${
+                        project.imageFit === "contain"
                           ? "object-contain bg-muted"
                           : "object-cover"
-                        }`}
+                      }`}
                     />
                   )}
                 </div>
                 <div className="max-w-xl border-l-2 border-primary pl-6">
-                  <span className="text-sm font-medium text-muted-foreground">
+                  {/* <span className="text-sm font-medium text-muted-foreground">
                     0{index + 1}
-                  </span>
+                  </span> */}
                   <h3 className="font-heading text-3xl sm:text-4xl font-semibold tracking-tight text-foreground mt-2 mb-4">
                     {project.title}
                   </h3>
@@ -210,6 +190,8 @@ export const ProjectsSection = () => {
                   {project.link && (
                     <a
                       href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 text-primary font-medium hover:underline"
                     >
                       View project
