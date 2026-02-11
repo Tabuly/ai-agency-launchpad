@@ -23,6 +23,3 @@ dist-ssr
 *.sln
 *.sw?
 
-# Large video assets (host on S3; GitHub limit 100MB)
-src/assets/projects/*.mov
-src/assets/projects/*.mp4
