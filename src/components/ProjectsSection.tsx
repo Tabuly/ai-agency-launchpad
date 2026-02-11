@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
-import twocal from "@/assets/projects/2cal.mov";
+import twocal from "@/assets/projects/2cal.mp4";
 import tabuly from "@/assets/projects/tabuly.png";
 import cal from "@/assets/projects/cal.jpeg";
 import ed from "@/assets/projects/ed.png";

@@ -42,7 +42,7 @@ const Navbar = () => {
       <div className="mx-auto max-w-7xl px-6 py-5 flex items-center justify-between relative">
         {/* Logo */}
         <a href="/" className="flex items-center gap-2 font-heading text-2xl tracking-tight text-foreground shrink-0">
-          Agency
+          Krayoon
         </a>
 
         {/* Desktop Nav Tabs - centered */}

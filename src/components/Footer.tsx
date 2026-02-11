@@ -67,7 +67,7 @@ export const Footer = () => {
                 href="/"
                 className="font-heading text-2xl tracking-tight text-foreground hover:opacity-80 transition-opacity"
               >
-                Agency
+                Krayoon
               </a>
               <p className="mt-3 text-muted-foreground text-sm leading-relaxed">
                 We help solo founders and small teams ship MVPs in 2 weeks.
@@ -98,7 +98,7 @@ export const Footer = () => {
           </div>
 
           <p className="mt-12 pt-8 border-t border-border text-muted-foreground text-sm">
-            © {new Date().getFullYear()} Agency. All rights reserved.
+            © {new Date().getFullYear()} Krayoon. All rights reserved.
           </p>
         </div>
       </div>

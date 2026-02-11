@@ -1,3 +1,4 @@
+import { useRef, useEffect } from "react"
 import type { HTMLAttributes } from "react"
 
 const SAFARI_WIDTH = 1203
@@ -33,6 +34,16 @@ export function Safari({
 }: SafariProps) {
   const hasVideo = !!videoSrc
   const hasMedia = hasVideo || !!imageSrc
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video || !videoSrc) return
+    const play = () => video.play().catch(() => {})
+    if (video.readyState >= 2) play()
+    else video.addEventListener("loadeddata", play, { once: true })
+    return () => video.removeEventListener("loadeddata", play)
+  }, [videoSrc])
 
   return (
     <div
@@ -54,13 +65,14 @@ export function Safari({
           }}
         >
           <video
+            ref={videoRef}
             className="block size-full object-cover"
             src={videoSrc}
             autoPlay
             loop
             muted
             playsInline
-            preload="metadata"
+            preload="auto"
           />
         </div>
       )}
