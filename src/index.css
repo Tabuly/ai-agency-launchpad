@@ -1,6 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300..900&display=swap');
 
 @font-face {
+  font-family: 'Cal Sans';
+  src: url('./assets/fonts/cal.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'Gambarino-Regular';
   src: url('./assets/Gambarino_Complete/Fonts/WEB/fonts/Gambarino-Regular.woff2') format('woff2'),
        url('./assets/Gambarino_Complete/Fonts/WEB/fonts/Gambarino-Regular.woff') format('woff'),

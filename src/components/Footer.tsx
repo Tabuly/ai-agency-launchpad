@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight } from "lucide-react";
 import agentCtaBg from "@/assets/agent-cta-background.webp";
+import logo from "@/assets/logos/2-cropped.svg";
 
 const footerLinks = {
   Work: [
@@ -14,7 +15,7 @@ const footerLinks = {
     { label: "Contact", href: "#" },
   ],
   Connect: [
-    { label: "Twitter", href: "#" },
+    { label: "Twitter", href: "https://x.com/krayoonstudios" },
     { label: "LinkedIn", href: "#" },
   ],
 };
@@ -65,9 +66,9 @@ export const Footer = () => {
             <div className="lg:max-w-xs">
               <a
                 href="/"
-                className="font-heading text-2xl tracking-tight text-foreground hover:opacity-80 transition-opacity"
+                className="inline-block hover:opacity-80 transition-opacity"
               >
-                Krayoon
+                <img src={logo} alt="Krayoon" className="h-24 w-auto" />
               </a>
               <p className="mt-3 text-muted-foreground text-sm leading-relaxed">
                 We help solo founders and small teams ship MVPs in 2 weeks.
@@ -84,6 +85,7 @@ export const Footer = () => {
                     {links.map(({ label, href }) => (
                       <li key={label}>
                         <a
+                          target="_blank"
                           href={href}
                           className="text-muted-foreground hover:text-foreground text-sm transition-colors"
                         >

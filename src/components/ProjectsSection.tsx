@@ -151,7 +151,7 @@ export const ProjectsSection = () => {
                 ref={(el) => {
                   itemRefs.current[index] = el;
                 }}
-                className="min-h-[75vh] flex flex-col lg:flex-row lg:items-start px-6 py-20 lg:px-0 lg:py-16 lg:min-h-[75vh] gap-8 lg:gap-0"
+                className="min-h-0 lg:min-h-[75vh] flex flex-col lg:flex-row lg:items-start px-6 py-10 lg:px-0 lg:py-16 gap-6 lg:gap-0"
               >
                 <div className="lg:hidden relative w-full aspect-video rounded-2xl overflow-hidden bg-muted shrink-0 shadow-lg">
                   {project.video ? (
